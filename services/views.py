@@ -9,9 +9,7 @@ def index(request):
     return render(request, "index.html", {"services": services})
 
 
-def service(request, service_id):
-    service = get_object_or_404(Service, pk=service_id)
-    service_details = ServiceDetail.objects.filter(service=service)
-    return render(
-        request, "service.html", {"service": service, "details": service_details}
-    )
+def service(request, id):
+    service = get_object_or_404(Service, id=id)
+    details = ServiceDetail.objects.filter(service_id=id)
+    return render(request, "service.html", {"service": service, "details": details})
