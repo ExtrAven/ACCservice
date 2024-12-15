@@ -17,7 +17,7 @@
   <div id="image" class="card card-body bg-transparent border-0 rounded">
     <h3 class="card-title">{{ service.name }}</h3>
     <div>
-      <a href={% url 'service' %}
+      <a href={% url 'service' service.id %}
         ><img
           class="img-fluid w-100 rounded"
           src="{{ service.image.url }}"
