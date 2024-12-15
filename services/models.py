@@ -7,3 +7,11 @@ class Service(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ServiceDetail(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    description = models.TextField(null=True, blank=False)
+
+    def __str__(self):
+        return self.service.name
