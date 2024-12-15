@@ -1,8 +1,28 @@
-{% extends "base.html" %} {% block content %}
-<div class="container text-center z-2">
-  <h1 class="text-center mt-5">Welcome to ACCservice</h1>
-  <p class="h4 m-5 text-center">
-    This is a web service for managing access control in a building.
-  </p>
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="container text-center z-3 d-grid">
+  <div id="title">
+    <div class="d-flex img">
+      <img
+        class="w-25 mb-0 mx-auto"
+        src="{% static 'images/logo.jpeg' %}"
+        alt="Logo"
+      />
+    </div>
+    <h1 class="text-center display-3 fw-bold">Welcome to ACCservice</h1>
+  </div>
+  <h2 id="subtitle" class="text-center display-6 fw-bold">Our Services</h2>
+  {% for service in services %}
+  <div id="image" class="card card-body bg-transparent border-0 rounded">
+    <h3 class="card-title">{{ service.name }}</h3>
+    <div>
+      <a href="#"
+        ><img
+          class="img-fluid w-100 rounded"
+          src="{{ service.image.url }}"
+          alt="service"
+      /></a>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}
